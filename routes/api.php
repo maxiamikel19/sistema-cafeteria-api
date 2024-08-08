@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
@@ -24,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/categorias', [CategoriaController::class, 'index']);
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
+
+Route::post('/registro', [AuthController::class, 'registro']);
