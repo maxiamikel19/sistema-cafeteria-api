@@ -27,3 +27,4 @@ Route::get('/categorias', [CategoriaController::class, 'index']);
 Route::get('/produtos', [ProdutoController::class, 'index']);
 
 Route::post('/registro', [AuthController::class, 'registro']);
+Route::post('/login', [AuthController::class, 'login']);
