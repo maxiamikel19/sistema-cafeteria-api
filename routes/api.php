@@ -28,12 +28,11 @@ Route::middleware('auth:sanctum')->group( function () {
      Route::post('/post', [PedidoController::class, 'store']);
      Route::get('/pedidos', [PedidoController::class, 'index']);
      Route::put('/pedidos/{pedido}', [PedidoController::class, 'update']);
+     Route::put('/produtos/{produto}', [ProdutoController::class, 'update']);
+     Route::get('/categorias', [CategoriaController::class, 'index']);
+     Route::get('/produtos', [ProdutoController::class, 'index']);
+     
 });
- 
-
-Route::get('/categorias', [CategoriaController::class, 'index']);
-
-Route::get('/produtos', [ProdutoController::class, 'index']);
 
 Route::post('/registro', [AuthController::class, 'registro']);
 Route::post('/login', [AuthController::class, 'login']);

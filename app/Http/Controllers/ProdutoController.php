@@ -53,9 +53,10 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        $produto->disponivel = 0;
+        $produto->save();
+        return [ 'produto' => $produto];
     }
-
     /**
      * Remove the specified resource from storage.
      */
