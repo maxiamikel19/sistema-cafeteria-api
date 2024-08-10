@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->group( function () {
 
      Route::post('/post', [PedidoController::class, 'store']);
      Route::get('/pedidos', [PedidoController::class, 'index']);
+     Route::put('/pedidos/{pedido}', [PedidoController::class, 'update']);
 });
  
 

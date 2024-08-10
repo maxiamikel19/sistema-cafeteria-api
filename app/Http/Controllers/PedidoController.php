@@ -17,6 +17,13 @@ class PedidoController extends Controller
        return new PedidoCollection(Pedido::with('user')->with('produtos')->where('estado', 0)->get());
     }
 
+    public function update(Request $request, Pedido $pedido)
+    {
+        $pedido->estado = 1;
+        $pedido->save();
+        return [ 'pedido' => $pedido];
+    }
+
     public function store(Request $request)
     {
         $pedido = new Pedido();
