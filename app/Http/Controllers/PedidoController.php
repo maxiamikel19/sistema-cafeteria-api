@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PedidoCollection;
 use App\Models\Pedido;
 use App\Models\PedidoProduto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
 {
+    public function index()
+    {
+        //$pedidos = DB::table('pedidos')->where('estado', 0)->orderBy('id', 'ASC')->get();
+       return new PedidoCollection(Pedido::with('user')->with('produtos')->where('estado', 0)->get());
+    }
+
     public function store(Request $request)
     {
         $pedido = new Pedido();

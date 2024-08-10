@@ -9,9 +9,19 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'total',
-        'estado',
-    ];
+    // protected $fillable = [
+    //     'user_id',
+    //     'total',
+    //     'estado',
+    // ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function produtos()
+    {
+        return $this->belongsToMany(Produto::class, 'pedido_produtos')->withPivot('cantidade');
+    }
 }

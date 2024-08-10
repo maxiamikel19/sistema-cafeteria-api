@@ -25,7 +25,8 @@ Route::middleware('auth:sanctum')->group( function () {
     
      Route::post('/logout', [AuthController::class, 'logout']);  
 
-     Route::post('/pedidos', [PedidoController::class, 'store']);
+     Route::post('/post', [PedidoController::class, 'store']);
+     Route::get('/pedidos', [PedidoController::class, 'index']);
 });
  
 
